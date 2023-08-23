@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Predict salary for job offer from justjoin.it</h1>
+    <h3>Please enter link to your offer:</h3>
+    <form action="prediction" method="post">
+        {% csrf_token %}
+        <input type="text" name="link" value="https://justjoin.it/offers/marketing-investment-group-mlodszy-web-developer-ec">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
