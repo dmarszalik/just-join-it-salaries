@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+import joblib
 
+
+model = joblib.load('predict/models/RF_model.pkl')
 
 def index(request):
     return render(request, "index.html")

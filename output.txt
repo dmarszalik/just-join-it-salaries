@@ -1,0 +1,20 @@
+sql
+python
+english
+power bi
+aws
+etl
+java
+azure
+oracle
+databricks
+big data
+snowflake
+scala
+data
+machine learning
+spark
+pl/sql
+dwh
+gcp
+databases
