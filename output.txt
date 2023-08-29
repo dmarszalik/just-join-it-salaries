@@ -2,19 +2,19 @@ sql
 python
 english
 power bi
-aws
 etl
-java
 azure
+java
+aws
+snowflake
 oracle
 databricks
-big data
-snowflake
-scala
 data
+big data
+pl/sql
+scala
 machine learning
 spark
-pl/sql
 dwh
 gcp
 databases
