@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+from sklearn.preprocessing import StandardScaler
 
 class Offer:
     def __init__(self, job_offer):
@@ -76,7 +77,7 @@ class Offer:
 
         level_mapping = {'junior': 0, 'mid': 1, 'senior': 2}
         workplace_mapping = {'remote': 0, 'partly_remote': 1, 'office': 2}
-        country_mapping = {'PL': 0, 'SK': 1, 'CZ': 2, 'HU': 3, 'AT': 4, 'SI': 5, 'RO': 6, 'MT': 7, 'DE': 8, 'UA': 9, None: 10, 'EE': 11}
+        country_mapping = {'PL': 0, 'SK': 1, 'CZ': 2, 'HU': 3, 'AT': 4, 'SI': 5, 'RO': 6, 'MT': 7, 'DE': 8, 'UA': 9, 'None': 10, 'EE': 11}
 
         aggregated_offer_df['experience_level'] = aggregated_offer_df['experience_level'].map(level_mapping)
         aggregated_offer_df['workplace_type'] = aggregated_offer_df['workplace_type'].map(workplace_mapping)
@@ -110,9 +111,17 @@ class Offer:
 
         offer_employment['avg_company_size'] = offer_employment['company_size'].apply(lambda x: standardize_company_size(x))
 
-        self.offer = offer_employment.drop(columns=['id', 'from', 'to', 'currency', 'company_size', 'company_profile', 'apply_body', 'title', 'street', 'city', 'address_text', 'marker_icon', 'company_name', 'company_url', 'latitude', 'longitude', 'apply_url', 'published_at', 'remote_interview', 'video_key', 'video_provider', 'open_to_hire_ukrainians', 'future_consent_title', 'future_consent', 'information_clause', 'custom_consent_title', 'custom_consent', 'tags', 'body', 'company_logo_url', 'banner_url', 'multilocation'])
+        self.offer = offer_employment.drop(columns=['id', 'from', 'to', 'currency', 'company_size', 'company_profile', 'apply_body', 'title', 'street', 'city', 'address_text', 'marker_icon', 'company_name', 'company_url', 'latitude', 'longitude', 'apply_url', 'published_at', 'remote_interview', 'video_key', 'video_provider', 'open_to_hire_ukrainians', 'future_consent_title', 'future_consent', 'information_clause', 'custom_consent_title', 'custom_consent', 'tags', 'body', 'company_logo_url', 'banner_url', 'multilocation'] , errors='ignore')
 
     def get_processed_offer(self):
         return self.offer
 
 
+# job_offer_url = "https://justjoin.it/offers/winged-it-lead-data-scientist"
+# offer_instance = Offer(job_offer_url)
+# offer_instance.preprocess()
+# processed_offer = offer_instance.get_processed_offer()
+# print('Wiersz bez standaryzacji: \n' ,processed_offer)
+# scl = StandardScaler()
+# offer_scaled = pd.DataFrame(scl.fit_transform(processed_offer), columns = processed_offer.columns)
+# print('wiersz po standaryzacji: \n', offer_scaled)

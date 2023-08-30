@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Predicted salary for your offer:</h1>
+    {% csrf_token %}
+    <h1>Predicted salary for your offer: {{salary_pred}} PLN</h1>
 </body>
 </html>
