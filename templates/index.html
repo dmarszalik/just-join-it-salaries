@@ -1,12 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
     <title>Document</title>
 </head>
 <body>
     <h1>Predict salary for job offer from justjoin.it</h1>
+    <h4>Category "DATA" only!</h4>
     <h3>Please enter link to your offer:</h3>
     <form action="prediction" method="post">
         {% csrf_token %}

@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+import joblib
 from sklearn.preprocessing import StandardScaler
 
 class Offer:
@@ -110,11 +111,15 @@ class Offer:
             return size
 
         offer_employment['avg_company_size'] = offer_employment['company_size'].apply(lambda x: standardize_company_size(x))
-
+        
+        scaler = joblib.load('Standard_Scaler_1.2.2.pkl')
         self.offer = offer_employment.drop(columns=['id', 'from', 'to', 'currency', 'company_size', 'company_profile', 'apply_body', 'title', 'street', 'city', 'address_text', 'marker_icon', 'company_name', 'company_url', 'latitude', 'longitude', 'apply_url', 'published_at', 'remote_interview', 'video_key', 'video_provider', 'open_to_hire_ukrainians', 'future_consent_title', 'future_consent', 'information_clause', 'custom_consent_title', 'custom_consent', 'tags', 'body', 'company_logo_url', 'banner_url', 'multilocation'] , errors='ignore')
+        self.offer_scaled = pd.DataFrame(scaler.transform(self.offer), columns = self.offer.columns)
+        
+
 
     def get_processed_offer(self):
-        return self.offer
+        return self.offer_scaled
 
 
 # job_offer_url = "https://justjoin.it/offers/winged-it-lead-data-scientist"

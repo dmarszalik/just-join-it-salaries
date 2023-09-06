@@ -1,0 +1,23 @@
+runtime: python310  # Wersja Pythona
+
+entrypoint: gunicorn -b :$PORT predict_salaries.wsgi  # Uruchamia serwer Gunicorn
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'predict_salaries.settings'
+  SECRET_KEY: 'django-insecure-ja8fjqz2ejngt4n-^tchm6f!!9(s)m01k2yw)7!+jyoy5ba)1y'
+
+instance_class: F2  # Typ instancji
+
+automatic_scaling:
+  target_cpu_utilization: 0.65  # Automatyczne skalowanie na podstawie zużycia CPU
+
+handlers:
+- url: /static
+  static_dir: staticfiles  # Katalog z plikami statycznymi
+
+- url: /.*
+  script: auto  # Standardowe zachowanie dla innych żądań
+
+runtime_config:
+  python_version: 3  # Wersja Pythona
+  python_charset: "UTF-8"  # Kodowanie znaków

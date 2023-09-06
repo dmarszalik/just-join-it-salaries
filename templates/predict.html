@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% csrf_token %}
-    <h1>Predicted salary for your offer: {{salary_pred}} PLN</h1>
+    <h1>Predicted salary for your offer: {{salary_from}} - {{salary_to}} PLN</h1>
 </body>
 </html>

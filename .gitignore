@@ -277,6 +277,10 @@ Klasyfikacja-przykłady-i-ćwiczenia.ipynb
 # data files
 *.csv
 
+.vscode
 
 test.ipynb
 .env
+
+google*
+.gcloudignore
