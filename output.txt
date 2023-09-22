@@ -1,20 +1,30 @@
-sql
 python
+sql
+aws
 english
 java
-snowflake
-power bi
-azure
-aws
 etl
-oracle
+power bi
 big data
-machine learning
+nosql
+snowflake
+cloud
+devops
 databases
 sql server
-agile
+machine learning
 spark
-devops
-databricks
-scala
-cassandra
+mysql
+oracle
+dax
+ci/cd
+data warehouse
+azure
+kafka
+docker
+linux
+t-sql
+git
+javascript
+airflow
+dwh
