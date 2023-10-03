@@ -1,3 +1,6 @@
+!!! Dnia 3 października 2023 zauważyliśmy, że justjoin.it zaprzestało udostępniać swoje API i projekt przestaje być użyteczny!!!
+
+
 Aby uruchomić serwer lokalny nalezy:
 1. Uzywając terminala, przejść do katalogu do którego będzie pobierana aplikacja
 2. Pobrać wszystkie pliki do pustego folderu:
